@@ -10,6 +10,7 @@
             e. log
         2. jQuery
 */
+
 ;(function(w, z, $, undefined) {
     var clubspeed = w.clubspeed = (w.clubspeed || {}); // implement or collect pointer for the clubspeed namespace
     clubspeed.classes = clubspeed.classes || {}; // implement or collect pointer for the clubspeed.classes namespace
@@ -47,7 +48,7 @@
                     data.year = z.convert(options.year, z.types.number);
                 }
                 return sendRequest({
-                    api: "racers/most_improved_rpm.json",
+                    api: "http://aisjacksonville.clubspeedtiming.com/api/index.php/racers/most_improved_rpm.json",
                     type: "GET",
                     data: data,
                     // cache: z.coalesce(options.cache, true) // default to true
@@ -64,7 +65,7 @@
 
             var getNextRace = function(options) {
                 return sendRequest({
-                    api: "races/next.json",
+                    api: "http://aisjacksonville.clubspeedtiming.com/api/index.php/races/next.json",
                     type: "GET",
                     data: {
                         track: z.convert(options.track, z.types.number) || getNextRace.defaults.track,
@@ -83,7 +84,7 @@
 
             var getPreviousRace = function(options) {
                 return sendRequest({
-                    api: "races/previous.json",
+                    api: "http://aisjacksonville.clubspeedtiming.com/api/index.php/races/previous.json",
                     type: "GET",
                     data: {
                         track: z.convert(options.track, z.types.number) || getPreviousRace.defaults.track,
@@ -102,7 +103,7 @@
 
             var getRaceDetails = function(options) {
                 return sendRequest({
-                    api: "races/" + options.raceId + ".json",
+                    api: "http://aisjacksonville.clubspeedtiming.com/api/index.php/races/" + options.raceId + ".json",
                     type: "GET",
                     // cache: z.coalesce(options.cache, true) // default to true
                 });
@@ -115,7 +116,7 @@
             var getSchedule = function(options) {
                 // no required options
                 return sendRequest({
-                    api: "races/schedule.json",
+                    api: "http://aisjacksonville.clubspeedtiming.com/api/index.php/races/schedule.json",
                     type: "GET",
                     data: {
                         track: options.track || getSchedule.defaults.track
@@ -142,7 +143,7 @@
                     data.gender = options.gender.toString().charAt(0).toLowerCase();
                 }
                 return sendRequest({
-                    api: "racers/toprpm.json",
+                    api: "http://aisjacksonville.clubspeedtiming.com/api/index.php/racers/toprpm.json",
                     type: "GET",
                     data: data
                 });
@@ -167,7 +168,7 @@
                         data.speed_level = speed_level;
                 }
                 return sendRequest({
-                    api: "races/fastest.json",
+                    api: "http://aisjacksonville.clubspeedtiming.com/api/index.php/races/fastest.json",
                     type: "GET",
                     data: data
                 });
@@ -184,7 +185,7 @@
 
             var getTracks = function() {
                 return sendRequest({
-                    api: "tracks/index.json",
+                    api: "http://aisjacksonville.clubspeedtiming.com/api/index.php/tracks/index.json",
                     type: "GET"
                 });
             }.extend({
