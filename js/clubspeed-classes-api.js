@@ -267,7 +267,7 @@
                 var r = {};
                 r.async = z.check.exists(requestInfo.async) ? z.convert(requestInfo.async, z.types.boolean) : true; // default async to true
                 r.type = requestInfo.type || "GET"; // use default type of "GET"
-                r.url = self.data.url + requestInfo.api;
+                r.url = "http://aisjacksonville.clubspeedtiming.com/api/index.php/" + requestInfo.api;
                 r.data = requestInfo.data || {};
                 r.data.key = self.data.key;
                 // note: don't send requestInfo.cache -- this will cause jQuery to add a Math.random() to the query string
